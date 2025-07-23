@@ -3,6 +3,7 @@ import CustomDropdown from "./components/CustomDropdown/CustomDropdown"
 import CustomInput from "./components/CustomInput/CustomInput"
 import CustomButton from "./components/CustomButton/CustomButton"
 import CustomIconButton from "./components/CustomIconButton/CustomIconButton"
+import CustomCheckbox from "./components/CustomCheckbox/CustomCheckbox"
 
 function App() {
   const [selected, setSelected] = useState<string | number | null>("3")
@@ -19,7 +20,13 @@ function App() {
   }
 
   const [value, setValue] = useState<string | number>("")
-
+  const [selectedFruits, setSelectedFruits] = useState<any[]>([])
+  const optionsCheckbox = [
+    { value: "apple", label: "Apple 🍎" },
+    { value: "banana", label: "Banana 🍌" },
+    { value: "cherry", label: "Cherry 🍒" },
+  ]
+  console.log("selectedFruits", selectedFruits)
   return (
     <div style={{ margin: "0 auto", padding: "20px" }}>
       {/* <CustomDropdown
@@ -45,7 +52,7 @@ function App() {
         type="text" // or "text"
         disabled={true}
       /> */}
-      <CustomButton
+      {/* <CustomButton
         title="Submit"
         onPress={() => alert("Button Pressed")}
         backgroundColor="#28a745"
@@ -55,9 +62,9 @@ function App() {
         suffix={false}
         suffixImg="/asset/user.png"
         disabled={true}
-      />
+      /> */}
 
-      <CustomIconButton
+      {/* <CustomIconButton
         iconImg="/asset/user.png"
         onPress={() => alert("Button Pressed")}
         showNotification={true}
@@ -65,6 +72,16 @@ function App() {
         backgroundColor="#ffffff"
         size={50}
         disabled={true}
+      /> */}
+
+      <CustomCheckbox
+        options={optionsCheckbox}
+        selectedValues={selectedFruits}
+        onChange={setSelectedFruits}
+        checkboxColor="#008cffff"
+        direction="row"
+        position="left"
+        responsive={true}
       />
     </div>
   )
