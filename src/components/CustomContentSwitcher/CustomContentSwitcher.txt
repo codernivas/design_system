@@ -1,0 +1,21 @@
+const [selectedTab, setSelectedTab] = useState("first");
+
+  const tabs = [
+    { label: "First section", value: "first" },
+    { label: "Second section", value: "second", disabled: true  },
+    { label: "Third section", value: "third" },
+  ];
+
+  --------return--------
+  
+  <CustomContentSwitcher
+        options={tabs}
+        selected={selectedTab}
+        onChange={setSelectedTab}
+        backgroundColor="#fff"
+        activeColor="#1a1a1a"
+        textColor="#333"
+        activeTextColor="#fff"
+        dividerColor="#ccc"
+        disabled={true}
+      />

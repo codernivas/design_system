@@ -1,0 +1,15 @@
+
+
+  --------return--------
+  
+<CustomButton
+        title="Submit"
+        onPress={() => alert("Button Pressed")}
+        backgroundColor="#28a745"
+        textColor="#fff"
+        prefix={false}
+        prefixImg="/asset/user.png"
+        suffix={false}
+        suffixImg="/asset/user.png"
+        disabled={true}
+      />

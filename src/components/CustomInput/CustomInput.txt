@@ -1,0 +1,5 @@
+  const installCmd = `yarn add carbon-components@latest carbon-components-react@latest`;
+
+  --------return--------
+  
+<CustomCodeSnippet code={installCmd} />
