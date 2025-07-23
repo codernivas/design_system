@@ -15,6 +15,7 @@ interface CustomDropdownProps {
   prefixImg?: string
   suffixImg?: string
   placeholder?: string
+  disabled?: boolean
 }
 
 const CustomDropdown: React.FC<CustomDropdownProps> = ({
@@ -26,26 +27,31 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
   prefixImg,
   suffixImg,
   placeholder = "Select",
+  disabled=false
 }) => {
   const [isOpen, setIsOpen] = useState(false)
 
-  const selectedLabel =
+    const selectedLabel =
     data.find((d) => d.value === value)?.label || placeholder
 
-  const toggleDropdown = () => setIsOpen((prev) => !prev)
+  const toggleDropdown = () => {
+    if (!disabled) setIsOpen((prev) => !prev)
+  }
 
   const handleSelect = (val: string | number) => {
-    onChange(val)
-    setIsOpen(false)
+    if (!disabled) {
+      onChange(val)
+      setIsOpen(false)
+    }
   }
 
   return (
-    <div className="dropdown-wrapper">
+    <div className={`dropdown-wrapper ${disabled ? "disabled" : ""}`}>
       {prefix && prefixImg && (
         <img src={prefixImg} alt="prefix" className="prefix-img" />
       )}
 
-      <div className="dropdown-display" onClick={toggleDropdown}>
+      <div className={`dropdown-display ${disabled ? "dropdown-disabled" : ""}`} onClick={toggleDropdown}>
         {selectedLabel}
         {suffix && suffixImg && (
           <img
@@ -56,7 +62,7 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
         )}
       </div>
 
-      {isOpen && (
+      {!disabled && isOpen && (
         <div className="dropdown-options">
           {data.map((option) => (
             <div

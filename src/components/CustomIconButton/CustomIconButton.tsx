@@ -1,13 +1,14 @@
-import React from "react";
-import "./customIconButton.css";
+import React from "react"
+import "./customIconButton.css"
 
 interface CustomIconButtonProps {
-  iconImg: string;
-  onPress: () => void;
-  showNotification?: boolean;
-  notificationCount?: number;
-  backgroundColor?: string;
-  size?: number; // optional size in px (e.g., 40)
+  iconImg: string
+  onPress: () => void
+  showNotification?: boolean
+  notificationCount?: number
+  backgroundColor?: string
+  size?: number 
+  disabled?: boolean
 }
 
 const CustomIconButton: React.FC<CustomIconButtonProps> = ({
@@ -17,16 +18,18 @@ const CustomIconButton: React.FC<CustomIconButtonProps> = ({
   notificationCount = 0,
   backgroundColor = "#f0f0f0",
   size = 40,
+  disabled = false,
 }) => {
   return (
     <div
-      className="custom-icon-button"
+      className={`custom-icon-button ${disabled ? "icon-button-disabled" : ""}`}
       style={{
         backgroundColor,
         width: size,
         height: size,
         minWidth: size,
         minHeight: size,
+        pointerEvents: disabled ? "none" : "auto",
       }}
       onClick={onPress}
     >
@@ -37,7 +40,7 @@ const CustomIconButton: React.FC<CustomIconButtonProps> = ({
         </span>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default CustomIconButton;
+export default CustomIconButton

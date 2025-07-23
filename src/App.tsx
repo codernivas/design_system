@@ -5,7 +5,7 @@ import CustomButton from "./components/CustomButton/CustomButton"
 import CustomIconButton from "./components/CustomIconButton/CustomIconButton"
 
 function App() {
-  const [selected, setSelected] = useState<string | number | null>(null)
+  const [selected, setSelected] = useState<string | number | null>("3")
 
   const options = [
     { label: "Option 1", value: "1" },
@@ -21,7 +21,7 @@ function App() {
   const [value, setValue] = useState<string | number>("")
 
   return (
-    <div style={{ margin: "0 auto", padding: "20px"}}>
+    <div style={{ margin: "0 auto", padding: "20px" }}>
       {/* <CustomDropdown
         data={options}
         value={selected}
@@ -31,6 +31,7 @@ function App() {
         prefixImg="/asset/user.png"
         suffixImg="/asset/down-arrow.png"
         placeholder="Choose an option"
+        disabled={false}
       /> */}
 
       {/* <CustomInput
@@ -42,8 +43,9 @@ function App() {
         // prefixImg="/asset/user.png"
         // suffixImg="/asset/down-arrow.png"
         type="text" // or "text"
+        disabled={true}
       /> */}
-      {/* <CustomButton
+      <CustomButton
         title="Submit"
         onPress={() => alert("Button Pressed")}
         backgroundColor="#28a745"
@@ -52,7 +54,8 @@ function App() {
         prefixImg="/asset/user.png"
         suffix={false}
         suffixImg="/asset/user.png"
-      /> */}
+        disabled={true}
+      />
 
       <CustomIconButton
         iconImg="/asset/user.png"
@@ -61,6 +64,7 @@ function App() {
         notificationCount={7}
         backgroundColor="#ffffff"
         size={50}
+        disabled={true}
       />
     </div>
   )

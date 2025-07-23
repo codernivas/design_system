@@ -71,3 +71,19 @@
   font-weight: 600;
   color: white;
 }
+
+.dropdown-disabled {
+  background-color: #f5f5f5;
+  color: #aaa;
+  border-color: #ddd;
+  cursor: not-allowed;
+}
+
+.dropdown-wrapper.disabled .suffix-img,
+.dropdown-wrapper.disabled .prefix-img {
+  opacity: 0.4;
+}
+
+.dropdown-wrapper.disabled {
+  pointer-events: none;
+}

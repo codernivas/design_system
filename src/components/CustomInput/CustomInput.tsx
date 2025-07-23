@@ -10,6 +10,7 @@ interface CustomInputProps {
   suffix?: boolean;
   prefixImg?: string;
   suffixImg?: string;
+  disabled?:boolean
 }
 
 const CustomInput: React.FC<CustomInputProps> = ({
@@ -19,6 +20,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
   type = "text",
   prefix = false,
   suffix = false,
+  disabled = false,
   prefixImg,
   suffixImg,
 }) => {
@@ -43,11 +45,13 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       )}
 
       <input
-        className={`custom-input ${prefix ? "has-prefix" : ""} ${suffix ? "has-suffix" : ""}`}
+  className={`custom-input ${prefix ? "has-prefix" : ""} ${suffix ? "has-suffix" : ""} ${disabled ? "input-disabled" : ""}`}
         type="text" // Use "text" to handle manual validation
         value={value}
         onChange={handleChange}
         placeholder={placeholder}
+          disabled={disabled}
+
       />
 
       {suffix && suffixImg && (

@@ -46,3 +46,15 @@
 .suffix-icon {
   right: 10px;
 }
+
+.input-disabled {
+  background-color: #f5f5f5;
+  color: #aaa;
+  border-color: #ddd;
+  cursor: not-allowed;
+}
+
+.custom-input-container.disabled .prefix-icon,
+.custom-input-container.disabled .suffix-icon {
+  opacity: 0.4;
+}
