@@ -1,0 +1,43 @@
+.code-container {
+  position: relative;
+  background-color: #f4f4f4;
+  border-radius: 6px;
+  padding: 12px 40px 12px 16px;
+  font-family: monospace;
+  font-size: 14px;
+  color: #333;
+  overflow-x: auto;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.code-block {
+  margin: 0;
+  flex: 1;
+  white-space: pre;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+.code-block::-webkit-scrollbar {
+  display: none; /* Chrome */
+}
+
+.copy-button {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #333;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.copy-button:hover {
+  opacity: 1;
+}

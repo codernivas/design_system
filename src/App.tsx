@@ -4,6 +4,7 @@ import CustomInput from "./components/CustomInput/CustomInput"
 import CustomButton from "./components/CustomButton/CustomButton"
 import CustomIconButton from "./components/CustomIconButton/CustomIconButton"
 import CustomCheckbox from "./components/CustomCheckbox/CustomCheckbox"
+import CustomCodeSnippet from "./components/CustomCodeSnippet/CustomCodeSnippet"
 
 function App() {
   const [selected, setSelected] = useState<string | number | null>("3")
@@ -27,6 +28,9 @@ function App() {
     { value: "cherry", label: "Cherry 🍒" },
   ]
   console.log("selectedFruits", selectedFruits)
+
+  const installCmd = `yarn add carbon-components@latest carbon-components-react@latest`;
+
   return (
     <div style={{ margin: "0 auto", padding: "20px" }}>
       {/* <CustomDropdown
@@ -74,7 +78,7 @@ function App() {
         disabled={true}
       /> */}
 
-      <CustomCheckbox
+      {/* <CustomCheckbox
         options={optionsCheckbox}
         selectedValues={selectedFruits}
         onChange={setSelectedFruits}
@@ -83,7 +87,9 @@ function App() {
         position="left"
         responsive={true}
         disabled={true}
-      />
+      /> */}
+
+      <CustomCodeSnippet code={installCmd} />
     </div>
   )
 }
