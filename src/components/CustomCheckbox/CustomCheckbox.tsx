@@ -4,6 +4,7 @@ import "./customCheckbox.css";
 interface CheckboxOption {
   value: any;
   label: any;
+  disabled?: boolean;
 }
 
 interface CustomCheckboxProps {
@@ -14,6 +15,7 @@ interface CustomCheckboxProps {
   direction?: "row" | "column";
   position?: "left" | "right";
   responsive?: boolean;
+  disabled?: boolean;
 }
 
 const CustomCheckbox: React.FC<CustomCheckboxProps> = ({
@@ -24,8 +26,10 @@ const CustomCheckbox: React.FC<CustomCheckboxProps> = ({
   direction = "row",
   position = "left",
   responsive = true,
+  disabled = false,
 }) => {
   const handleCheckboxChange = (value: any) => {
+    if (disabled) return;
     const newValues = selectedValues.includes(value)
       ? selectedValues.filter((v) => v !== value)
       : [...selectedValues, value];
@@ -34,32 +38,45 @@ const CustomCheckbox: React.FC<CustomCheckboxProps> = ({
 
   return (
     <div
-      className={`checkbox-group ${responsive ? "responsive" : ""}`}
-      style={{ flexDirection: direction }}
+      className={`checkbox-group ${responsive ? "responsive" : ""} direction-${direction}`}
+      data-checkbox-color={checkboxColor}
     >
-      {options.map((option, index) => (
-        <div key={index} className="checkbox-item">
-          {position === "left" && (
-            <input
-              type="checkbox"
-              checked={selectedValues.includes(option.value)}
-              onChange={() => handleCheckboxChange(option.value)}
-              className="custom-checkbox"
-              style={{ accentColor: checkboxColor }}
-            />
-          )}
-          <label className="checkbox-label">{option.label}</label>
-          {position === "right" && (
-            <input
-              type="checkbox"
-              checked={selectedValues.includes(option.value)}
-              onChange={() => handleCheckboxChange(option.value)}
-              className="custom-checkbox"
-              style={{ accentColor: checkboxColor }}
-            />
-          )}
-        </div>
-      ))}
+      {options.map((option, index) => {
+        const isDisabled = disabled || option.disabled;
+        const inputId = `checkbox-${index}`;
+
+        return (
+          <div key={index} className={`checkbox-item ${isDisabled ? "disabled" : ""}`}>
+            {position === "left" && (
+              <input
+                id={inputId}
+                type="checkbox"
+                checked={selectedValues.includes(option.value)}
+                onChange={() => handleCheckboxChange(option.value)}
+                disabled={isDisabled}
+                className="custom-checkbox"
+                title={typeof option.label === "string" ? option.label : "Checkbox"}
+              />
+            )}
+
+            <label htmlFor={inputId} className="checkbox-label">
+              {option.label}
+            </label>
+
+            {position === "right" && (
+              <input
+                id={inputId}
+                type="checkbox"
+                checked={selectedValues.includes(option.value)}
+                onChange={() => handleCheckboxChange(option.value)}
+                disabled={isDisabled}
+                className="custom-checkbox"
+                title={typeof option.label === "string" ? option.label : "Checkbox"}
+              />
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 };

@@ -23,7 +23,7 @@ function App() {
   const [selectedFruits, setSelectedFruits] = useState<any[]>([])
   const optionsCheckbox = [
     { value: "apple", label: "Apple 🍎" },
-    { value: "banana", label: "Banana 🍌" },
+    { value: "banana", label: "Banana 🍌", disabled: true },
     { value: "cherry", label: "Cherry 🍒" },
   ]
   console.log("selectedFruits", selectedFruits)
@@ -79,9 +79,10 @@ function App() {
         selectedValues={selectedFruits}
         onChange={setSelectedFruits}
         checkboxColor="#008cffff"
-        direction="row"
+        direction="column"
         position="left"
         responsive={true}
+        disabled={true}
       />
     </div>
   )

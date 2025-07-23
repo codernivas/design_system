@@ -8,16 +8,34 @@
   flex-direction: column;
 }
 
+.checkbox-group.direction-row {
+  flex-direction: row;
+}
+
+.checkbox-group.direction-column {
+  flex-direction: column;
+}
+
 .checkbox-item {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+.checkbox-item.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .custom-checkbox {
   width: 18px;
   height: 18px;
   cursor: pointer;
+  accent-color: var(--checkbox-color, #007BFF);
+}
+
+.checkbox-group[data-checkbox-color] .custom-checkbox {
+  accent-color: attr(data-checkbox-color);
 }
 
 .checkbox-label {
