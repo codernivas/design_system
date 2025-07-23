@@ -1,0 +1,31 @@
+.custom-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  /* max-width: 300px; */
+  box-sizing: border-box;
+}
+
+.custom-button:hover {
+  opacity: 0.9;
+}
+
+.button-prefix-img,
+.button-suffix-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.button-text {
+  white-space: nowrap;
+}

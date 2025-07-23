@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import CustomDropdown from "./components/CustomDropdown/CustomDropdown"
 import CustomInput from "./components/CustomInput/CustomInput"
+import CustomButton from "./components/CustomButton/CustomButton"
+import CustomIconButton from "./components/CustomIconButton/CustomIconButton"
 
 function App() {
   const [selected, setSelected] = useState<string | number | null>(null)
@@ -19,8 +21,8 @@ function App() {
   const [value, setValue] = useState<string | number>("")
 
   return (
-    <div style={{ margin: "0 auto", padding: "20px" }}>
-      <CustomDropdown
+    <div style={{ margin: "0 auto", padding: "20px"}}>
+      {/* <CustomDropdown
         data={options}
         value={selected}
         onChange={handleDropdownChange}
@@ -29,9 +31,9 @@ function App() {
         prefixImg="/asset/user.png"
         suffixImg="/asset/down-arrow.png"
         placeholder="Choose an option"
-      />
+      /> */}
 
-      <CustomInput
+      {/* <CustomInput
         value={value}
         onChange={(val) => setValue(val)}
         placeholder="Enter value"
@@ -40,6 +42,25 @@ function App() {
         // prefixImg="/asset/user.png"
         // suffixImg="/asset/down-arrow.png"
         type="text" // or "text"
+      /> */}
+      {/* <CustomButton
+        title="Submit"
+        onPress={() => alert("Button Pressed")}
+        backgroundColor="#28a745"
+        textColor="#fff"
+        prefix={false}
+        prefixImg="/asset/user.png"
+        suffix={false}
+        suffixImg="/asset/user.png"
+      /> */}
+
+      <CustomIconButton
+        iconImg="/asset/user.png"
+        onPress={() => alert("Button Pressed")}
+        showNotification={true}
+        notificationCount={7}
+        backgroundColor="#ffffff"
+        size={50}
       />
     </div>
   )
