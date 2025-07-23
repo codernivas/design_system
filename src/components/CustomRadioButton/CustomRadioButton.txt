@@ -1,0 +1,17 @@
+
+  const [selected, setSelected] = useState("apple");
+
+  --------return--------
+  
+<CustomRadioButton
+      options={[
+        { label: "Apple", value: "apple" },
+        { label: "Banana", value: "banana" },
+        { label: "Cherry", value: "cherry", disabled: true },
+      ]}
+      selectedValue={selected}
+      onChange={(val) => setSelected(val)}
+      direction="row"
+      position="left"
+      color="#ff5722"
+    />

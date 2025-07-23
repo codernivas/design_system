@@ -1,0 +1,40 @@
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.radio-group.responsive {
+  flex-direction: column;
+}
+
+.radio-group.direction-row {
+  flex-direction: row;
+}
+
+.radio-group.direction-column {
+  flex-direction: column;
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.radio-item.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.custom-radio {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--radio-color, #007BFF);
+}
+
+.radio-label {
+  font-size: 16px;
+  color: #333;
+}
