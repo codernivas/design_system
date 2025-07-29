@@ -1,12 +1,8 @@
-import { useEffect, useState } from "react"
-import CustomButton from "./components/CustomButton/CustomButton"
-import { CustomTable } from "./components/CustomTable/CustomTable"
 type User = {
   id: number
   name: string
   email: string
 }
-function App() {
   const userData: User[] = [
     { id: 1, name: "Nivas Jerry", email: "nivas@example.com" },
     { id: 2, name: "Jane Doe", email: "jane@example.com" },
@@ -14,14 +10,8 @@ function App() {
     { id: 4, name: "Jane Doe", email: "jane@example.com" },
   ]
 
-  const handleRowClick = (user: User) => {
-    alert(`Clicked row with ID: ${user.id}`)
-  }
-  return (
-    <div style={{ margin: "0 auto", padding: "20px" }}>
-      <h1>Components</h1>
-      <CustomButton onPress={() => console.log("hi")} title="laishf" />
-      <CustomTable
+  --------return--------
+ <CustomTable
         data={userData}
         columns={[
           { header: "ID", accessor: "id" },
@@ -45,8 +35,3 @@ function App() {
           </div>
         )}
       />
-    </div>
-  )
-}
-
-export default App
